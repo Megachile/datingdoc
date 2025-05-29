@@ -1,6 +1,5 @@
-// Your GitHub username and repo name
 const GITHUB_USER = 'Megachile';
-const GITHUB_REPO = 'Megachile.github.io'; // Repo name isn't needed for constructing URLs in a project site
+const GITHUB_REPO = 'Megachile.github.io';
 
 async function loadGalleryImages(galleryType) {
     try {
@@ -9,12 +8,13 @@ async function loadGalleryImages(galleryType) {
         );
         const files = await response.json();
         
-        // Filter for image files only
-        const imageFiles = files
+        if (!Array.isArray(files)) {
+            throw new Error(`GitHub API returned: ${JSON.stringify(files)}`);
+        }
+
+        return files
             .filter(file => /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name))
             .map(file => file.name);
-            
-        return imageFiles;
     } catch (error) {
         console.error(`Error loading ${galleryType} images:`, error);
         return [];
@@ -36,7 +36,6 @@ async function shuffleGallery(galleryType) {
     await displayGallery(galleryType);
 }
 
-// Initialize galleries on page load
 window.onload = async function() {
     await displayGallery('life');
     await displayGallery('art');
