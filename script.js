@@ -7,9 +7,9 @@ async function loadGalleryImages(galleryType) {
             `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/datingdoc/images/${galleryType}`
         );
         const files = await response.json();
-        
+
         if (!Array.isArray(files)) {
-            throw new Error(`GitHub API returned: ${JSON.stringify(files)}`);
+            throw new Error(`GitHub API returned non-array: ${JSON.stringify(files)}`);
         }
 
         return files
