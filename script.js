@@ -1,11 +1,11 @@
 // Your GitHub username and repo name
 const GITHUB_USER = 'Megachile';
-const GITHUB_REPO = 'Megachile.github.io';
+const GITHUB_REPO = 'Megachile.github.io'; // Repo name isn't needed for constructing URLs in a project site
 
 async function loadGalleryImages(galleryType) {
     try {
         const response = await fetch(
-            `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/images/${galleryType}`
+            `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/datingdoc/images/${galleryType}`
         );
         const files = await response.json();
         
@@ -28,7 +28,7 @@ async function displayGallery(galleryType) {
     const imagesToShow = shuffled.slice(0, 5);
     
     container.innerHTML = imagesToShow.map(img => 
-        `<img src="images/${galleryType}/${img}" alt="${galleryType} image">`
+        `<img src="https://megachile.github.io/datingdoc/images/${galleryType}/${img}" alt="${galleryType} image">`
     ).join('');
 }
 
