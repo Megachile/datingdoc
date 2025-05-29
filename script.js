@@ -1,54 +1,44 @@
-// Add your image filenames here
-const galleries = {
-    life: [
-        'life1.jpg',
-        'life2.jpg',
-        'life3.jpg',
-        'life4.jpg',
-        'life5.jpg',
-        // Add more...
-    ],
-    art: [
-        'watercolor1.jpg',
-        'midjourney1.jpg',
-        'macro1.jpg',
-        'cloud1.jpg',
-        // Add more...
-    ],
-    interests: [
-        'interest1.jpg',
-        'interest2.jpg',
-        'interest3.jpg',
-        // Add more...
-    ]
-};
+// Your GitHub username and repo name
+const GITHUB_USER = 'Megachile';
+const GITHUB_REPO = 'Megachile.github.io';
 
-function shuffleArray(array) {
-    const newArray = [...array];
-    for (let i = newArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+async function loadGalleryImages(galleryType) {
+    try {
+        const response = await fetch(
+            `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/images/${galleryType}`
+        );
+        const files = await response.json();
+        
+        // Filter for image files only
+        const imageFiles = files
+            .filter(file => /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name))
+            .map(file => file.name);
+            
+        return imageFiles;
+    } catch (error) {
+        console.error(`Error loading ${galleryType} images:`, error);
+        return [];
     }
-    return newArray;
 }
 
-function displayGallery(galleryType) {
+async function displayGallery(galleryType) {
     const container = document.getElementById(`${galleryType}-gallery`);
-    const images = shuffleArray(galleries[galleryType]);
-    const imagesToShow = images.slice(0, 5); // Show 5 random images
+    const images = await loadGalleryImages(galleryType);
+    const shuffled = images.sort(() => Math.random() - 0.5);
+    const imagesToShow = shuffled.slice(0, 5);
     
     container.innerHTML = imagesToShow.map(img => 
         `<img src="images/${galleryType}/${img}" alt="${galleryType} image">`
     ).join('');
 }
 
-function shuffleGallery(galleryType) {
-    displayGallery(galleryType);
+async function shuffleGallery(galleryType) {
+    await displayGallery(galleryType);
 }
 
 // Initialize galleries on page load
-window.onload = function() {
-    displayGallery('life');
-    displayGallery('art');
-    displayGallery('interests');
+window.onload = async function() {
+    await displayGallery('life');
+    await displayGallery('art');
+    await displayGallery('interests');
 };
