@@ -26,9 +26,15 @@ async function displayGallery(galleryType) {
     const images = await loadGalleryImages(galleryType);
     const shuffled = images.sort(() => Math.random() - 0.5);
     const imagesToShow = shuffled.slice(0, 5);
-    
+
+    // Debug output
+    console.log(`Displaying images for "${galleryType}" gallery:`);
+    console.log(imagesToShow.map(img => `https://megachile.github.io/datingdoc/images/${galleryType}/${img}`));
+
     container.innerHTML = imagesToShow.map(img => 
-        `<img src="https://megachile.github.io/datingdoc/images/${galleryType}/${img}" alt="${galleryType} image">`
+        `<img src="https://megachile.github.io/datingdoc/images/${galleryType}/${img}" 
+              alt="${galleryType} image" 
+              onerror="this.style.border='2px solid red'; this.alt='Image not found'">`
     ).join('');
 }
 
