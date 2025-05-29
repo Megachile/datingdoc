@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam - Dating Profile</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="static-photos">
+            <img src="images/recent1.jpg" alt="Recent photo">
+            <img src="images/recent2.jpg" alt="Recent photo">
+            <img src="images/recent3.jpg" alt="Recent photo">
+        </div>
+    </header>
+
+    <main>
+        <section class="intro">
+            <p>I'm Adam, a 34 year old PhD student at the University of New Mexico in Albuquerque looking for your help meeting the love of my life and mother of my kids.</p>
+            
+            <p>I've been happily single for a long time and I'll continue to be happy on my own as long as I need to be. In the past few years I've opened my eyes to the aspiration to become a lot more than happy: to find someone very special to invest in a deeply loving, supportive, transformative relationship that can be the foundation to build a family.</p>
+            
+            <p><strong>Practicality:</strong> I am currently living in Albuquerque and committed to live here for at least another 3 years until I finish my PhD (open-ended after that). I realize this is a significant obstacle, and it makes this gesture a bit of a long shot for the time being. But the relationship I'm looking for isn't one of convenience or happenstance. I want to find someone I can choose to commit to for the long term, to practice overcoming challenges with. If there's a chance I might meet that person a few years earlier, I can't put it off even if it isn't easy.</p>
+        </section>
+
+        <section class="character-traits">
+            <h2>Character traits I have to offer:</h2>
+            
+            <p><strong>Curiosity:</strong> love to learn and care about getting things right</p>
+            
+            <p><strong>Gratitude:</strong> I have been blessed with a wonderful family, befriended many incredible people, and had amazing opportunities and have not taken that for granted</p>
+            
+            <p><strong>Agentic:</strong> I founded a website (gallformers.org), built connections between amateur naturalist and academic communities, developed a browser extension, built another web tool, and I'm working on another, just because I thought they needed to exist. In my personal life I generally take care of things and don't put them off.</p>
+            
+            <p><strong>Socially competent:</strong> I generally like small talk, I'm a teacher and tutor who can communicate complex ideas well, sometimes. My dance partners seem to quickly feel comfortable with me.</p>
+            
+            <p><strong>Introspective:</strong> perhaps prone to overthink and overcommunicate but when relevant, I spend a lot of time reflecting on my feelings and relational behaviors</p>
+            
+            <p><strong>Affectionate:</strong> I like to let my friends know I like them 🙂</p>
+            
+            <p><strong>Sharp:</strong> I feel it's a duty and privilege to hold things to high standards of taste and quality and to find joy in the inevitability of falling short, sometimes in slapstick incompetence</p>
+        </section>
+
+        <section class="transformation">
+            <p>For a long time, I defined myself by curating and creating an esoteric and ambitious range of art and ideas, and that's still a big part of what I bring to the table. There are some samples of what that has looked like below--not things I need a partner to share, just surface area for connection and examples of the overall deal. In the last year, my priorities have shifted to focus on more humble, embodied, expressive and connective pursuits. I started lifting weights, running 5ks, dancing in classes and at a bar (now up to 6 styles/week), perfecting a 10-minute instant pot risotto recipe, attending to nutrition, meditating, and watercolor painting with my mom, niece, and aunt.</p>
+        </section>
+
+        <section class="galleries">
+            <div class="gallery-section">
+                <h3>Pics of me from random points in my life:</h3>
+                <button onclick="shuffleGallery('life')">Shuffle</button>
+                <div id="life-gallery" class="gallery">
+                    <!-- Images will be inserted here by JavaScript -->
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <h3>Images I've made that I like:</h3>
+                <button onclick="shuffleGallery('art')">Shuffle</button>
+                <div id="art-gallery" class="gallery">
+                    <!-- Images will be inserted here by JavaScript -->
+                </div>
+            </div>
+
+            <div class="gallery-section">
+                <h3>Some favorite things that have been meaningful in my life:</h3>
+                <button onclick="shuffleGallery('interests')">Shuffle</button>
+                <div id="interests-gallery" class="gallery">
+                    <!-- Images will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>(refresh to shuffle)</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
