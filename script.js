@@ -1,10 +1,10 @@
 const GITHUB_USER = 'Megachile';
-const GITHUB_REPO = 'Megachile.github.io';
+const GITHUB_REPO = 'datingdoc';
 
 async function loadGalleryImages(galleryType) {
     try {
         const response = await fetch(
-            `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/datingdoc/images/${galleryType}`
+            `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/images/${galleryType}`
         );
         const files = await response.json();
 
