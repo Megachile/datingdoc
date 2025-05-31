@@ -24,12 +24,20 @@ async function loadGalleryImages(galleryType) {
 async function displayGallery(galleryType) {
     const container = document.getElementById(`${galleryType}-gallery`);
     const images = await loadGalleryImages(galleryType);
-    
+
     console.log(`${galleryType} gallery - Total images found:`, images.length);
-    
+
     const shuffled = images.sort(() => Math.random() - 0.5);
-    const imagesToShow = shuffled;
-    
+
+    // --- Responsive image count logic ---
+    const containerWidth = container.offsetWidth;
+    const minImageWidth = 250;
+    const maxImages = 8;
+    const imagesPerRow = Math.floor(containerWidth / minImageWidth) || 1; // fallback to at least 1
+    const totalImagesToShow = Math.min(imagesPerRow * 2, maxImages); // cap at 2 rows, or fewer if space is tight
+
+    const imagesToShow = shuffled.slice(0, totalImagesToShow);
+
     console.log(`${galleryType} gallery - Images to show:`, imagesToShow.length);
     console.log(`${galleryType} gallery - Image names:`, imagesToShow);
 
@@ -38,10 +46,10 @@ async function displayGallery(galleryType) {
               alt="${galleryType} image" 
               onerror="this.style.border='2px solid red'; this.alt='Image not found'">`
     ).join('');
-    
-    // Check what actually got added
+
     console.log(`${galleryType} gallery - Actual images in DOM:`, container.querySelectorAll('img').length);
 }
+
 
 async function shuffleGallery(galleryType) {
     await displayGallery(galleryType);

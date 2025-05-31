@@ -57,8 +57,8 @@ p {
   gap: 20px;
   padding: 20px;
   box-sizing: border-box;
-  max-width: 1000px; /* Prevents an unlimited number of columns */
-  margin: 0 auto; /* Center the gallery */
+  max-width: 1000px; /* optional cap on gallery width */
+  margin: 0 auto; /* center it horizontally */
 }
 
 .gallery img {
@@ -66,7 +66,9 @@ p {
   height: auto;
   display: block;
   border-radius: 5px;
+  object-fit: cover; /* helps keep image regions neat if sizes vary */
 }
+
 
 
 
