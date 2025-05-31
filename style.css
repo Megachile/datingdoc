@@ -45,22 +45,14 @@ p {
     margin-bottom: 15px;
 }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
 .gallery img {
     width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
+    height: auto;
+    max-width: 250px;
+    object-fit: scale-down;
 }
 
-/* Give different images different heights */
-.gallery img:nth-child(3n+1) { height: 200px; }
-.gallery img:nth-child(3n+2) { height: 250px; }
-.gallery img:nth-child(3n) { height: 180px; }
+
 button {
     background: none;
     color: #666;
