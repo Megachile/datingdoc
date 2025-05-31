@@ -24,18 +24,23 @@ async function loadGalleryImages(galleryType) {
 async function displayGallery(galleryType) {
     const container = document.getElementById(`${galleryType}-gallery`);
     const images = await loadGalleryImages(galleryType);
+    
+    console.log(`${galleryType} gallery - Total images found:`, images.length);
+    
     const shuffled = images.sort(() => Math.random() - 0.5);
-    const imagesToShow = shuffled.slice(0, 3);
-
-    // Debug output
-    console.log(`Displaying images for "${galleryType}" gallery:`);
-    console.log(imagesToShow.map(img => `https://megachile.github.io/datingdoc/images/${galleryType}/${img}`));
+    const imagesToShow = shuffled.slice(0, 5);
+    
+    console.log(`${galleryType} gallery - Images to show:`, imagesToShow.length);
+    console.log(`${galleryType} gallery - Image names:`, imagesToShow);
 
     container.innerHTML = imagesToShow.map(img => 
         `<img src="https://megachile.github.io/datingdoc/images/${galleryType}/${img}" 
               alt="${galleryType} image" 
               onerror="this.style.border='2px solid red'; this.alt='Image not found'">`
     ).join('');
+    
+    // Check what actually got added
+    console.log(`${galleryType} gallery - Actual images in DOM:`, container.querySelectorAll('img').length);
 }
 
 async function shuffleGallery(galleryType) {
