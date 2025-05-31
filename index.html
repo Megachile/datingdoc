@@ -46,31 +46,36 @@
             <p>For a long time, I defined myself by curating and creating an esoteric and ambitious range of art and ideas, and that's still a big part of what I bring to the table. There are some samples of what that has looked like below--not things I need a partner to share, just surface area for connection and examples of the overall deal. In the last year, my priorities have shifted to focus on more humble, embodied, expressive and connective pursuits. I started lifting weights, running 5ks, dancing in classes and at a bar (now up to 6 styles/week), perfecting a 10-minute instant pot risotto recipe, attending to nutrition, meditating, and watercolor painting with my mom, niece, and aunt.</p>
         </section>
 
-        <section class="galleries">
-            <div class="gallery-section">
-                <h3>Pics of me from random points in my life:</h3>
-                <button onclick="shuffleGallery('life')">Shuffle</button>
+       <section class="gallery-section">
+            <h3>Pics of me from random points in my life:</h3>
+            <button onclick="shuffleGallery('life')">Shuffle</button>
+            <div class="gallery-wrapper">
                 <div id="life-gallery" class="gallery">
-                    <!-- Images will be inserted here by JavaScript -->
-                </div>
-            </div>
-
-            <div class="gallery-section">
-                <h3>Images I've made that I like:</h3>
-                <button onclick="shuffleGallery('art')">Shuffle</button>
-                <div id="art-gallery" class="gallery">
-                    <!-- Images will be inserted here by JavaScript -->
-                </div>
-            </div>
-
-            <div class="gallery-section">
-                <h3>Some favorite things that have been meaningful in my life:</h3>
-                <button onclick="shuffleGallery('interests')">Shuffle</button>
-                <div id="interests-gallery" class="gallery">
-                    <!-- Images will be inserted here by JavaScript -->
+                    <!-- Images inserted by JS -->
                 </div>
             </div>
         </section>
+
+        <section class="gallery-section">
+            <h3>Images I've made that I like:</h3>
+            <button onclick="shuffleGallery('art')">Shuffle</button>
+            <div class="gallery-wrapper">
+                <div id="art-gallery" class="gallery">
+                    <!-- Images inserted by JS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section">
+            <h3>Some favorite things that have been meaningful in my life:</h3>
+            <button onclick="shuffleGallery('interests')">Shuffle</button>
+            <div class="gallery-wrapper">
+                <div id="interests-gallery" class="gallery">
+                    <!-- Images inserted by JS -->
+                </div>
+            </div>
+        </section>
+
 
         <footer>
             <p>(refresh to shuffle)</p>
