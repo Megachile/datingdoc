@@ -68,7 +68,32 @@ p {
   break-inside: avoid;
 }
 
+section {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    border-left: 4px solid #8B7355; /* Earthy brown accent */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
 
+/* Alternate border colors for different sections */
+section:nth-child(odd) {
+    border-left-color: #7B8B6C; /* Sage green */
+}
+section:nth-child(even) {
+    border-left-color: #8B7355; /* Warm brown */
+}
+
+/* Special treatment for header */
+header {
+    background: rgba(255, 255, 255, 0.98);
+    padding: 30px;
+    border-radius: 8px;
+    border-top: 3px solid #7B8B6C;
+    margin-bottom: 40px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
 
 
 button {
