@@ -25,7 +25,7 @@ async function displayGallery(galleryType) {
     const container = document.getElementById(`${galleryType}-gallery`);
     const images = await loadGalleryImages(galleryType);
     const shuffled = images.sort(() => Math.random() - 0.5);
-    const imagesToShow = shuffled.slice(0, 5);
+    const imagesToShow = shuffled.slice(0, 3);
 
     // Debug output
     console.log(`Displaying images for "${galleryType}" gallery:`);
