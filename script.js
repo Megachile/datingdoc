@@ -28,7 +28,7 @@ async function displayGallery(galleryType) {
     console.log(`${galleryType} gallery - Total images found:`, images.length);
     
     const shuffled = images.sort(() => Math.random() - 0.5);
-    const imagesToShow = shuffled.slice(0, 3);
+    const imagesToShow = shuffled.slice(0, 4);
     
     console.log(`${galleryType} gallery - Images to show:`, imagesToShow.length);
     console.log(`${galleryType} gallery - Image names:`, imagesToShow);
