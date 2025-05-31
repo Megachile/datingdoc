@@ -34,7 +34,7 @@ async function displayGallery(galleryType) {
     const hardCap = 4;
 
     const imagesThatFit = Math.floor(containerWidth / minImageWidth);
-    const totalImagesToShow = Math.min(imagesThatFit, hardCap, images.length);
+    const totalImagesToShow = Math.min(4, images.length);
 
     const imagesToShow = shuffled.slice(0, totalImagesToShow);
 

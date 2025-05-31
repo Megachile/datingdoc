@@ -50,16 +50,18 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   margin-top: 15px;
   margin-bottom: 40px;
+  width: 100%;
+  max-width: none;
 }
 
 /* === Masonry Gallery Layout === */
 .gallery {
-  column-width: 300px;
+  column-count: 2;
   column-gap: 20px;
-  width: 100%;
   max-width: 1000px;
   margin: 0 auto;
 }
+
 
 .gallery img {
   width: 100%;
