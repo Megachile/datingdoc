@@ -52,25 +52,20 @@ p {
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-auto-flow: row;
-  gap: 20px;
+  column-count: 3;
+  column-gap: 20px;
   padding: 20px;
-  box-sizing: border-box;
-  justify-content: center; /* center the whole grid content */
-  align-items: start;
   max-width: 1000px;
   margin: 0 auto;
 }
-
 
 .gallery img {
   width: 100%;
   height: auto;
   display: block;
+  margin-bottom: 20px;
   border-radius: 5px;
-  object-fit: cover; /* helps keep image regions neat if sizes vary */
+  break-inside: avoid;
 }
 
 

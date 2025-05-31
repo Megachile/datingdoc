@@ -28,15 +28,8 @@ async function displayGallery(galleryType) {
     console.log(`${galleryType} gallery - Total images found:`, images.length);
 
     const shuffled = images.sort(() => Math.random() - 0.5);
-
-    const containerWidth = container.offsetWidth;
-    const minImageWidth = 250;
-
     // Compute how many *can* fit at min width, but don't exceed hard cap
-    const imagesThatFit = Math.floor(containerWidth / minImageWidth);
-    const totalImagesToShow = Math.min(4, images.length);
-
-    const imagesToShow = shuffled.slice(0, totalImagesToShow);
+    const imagesToShow = shuffled.slice(0, Math.min(8, images.length));
 
     console.log(`${galleryType} gallery - Images to show:`, imagesToShow.length);
     console.log(`${galleryType} gallery - Image names:`, imagesToShow);
