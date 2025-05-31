@@ -24,6 +24,33 @@ header {
     margin-bottom: 40px;
 }
 
+section {
+    background: white;
+    padding: 35px;
+    margin-bottom: 40px;
+    position: relative;
+    /* Torn paper effect */
+    box-shadow: 
+        0 0 10px rgba(0,0,0,0.1),
+        inset 0 0 30px rgba(0,0,0,0.02);
+    border-radius: 3px 15px 5px 30px / 15px 5px 20px 5px;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, 
+        transparent 30%, 
+        rgba(200, 200, 200, 0.1) 50%, 
+        transparent 70%);
+    z-index: -1;
+    border-radius: 5px 25px 10px 35px / 25px 10px 30px 10px;
+}
+
 .static-photos {
     display: flex;
     gap: 20px;
@@ -37,10 +64,6 @@ header {
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
-}
-
-section {
-    margin-bottom: 40px;
 }
 
 h1, h2, h3 {
@@ -67,34 +90,6 @@ p {
   border-radius: 5px;
   break-inside: avoid;
 }
-
-section {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 30px;
-    margin-bottom: 40px;
-    border-radius: 8px;
-    border-left: 4px solid #8B7355; /* Earthy brown accent */
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Alternate border colors for different sections */
-section:nth-child(odd) {
-    border-left-color: #7B8B6C; /* Sage green */
-}
-section:nth-child(even) {
-    border-left-color: #8B7355; /* Warm brown */
-}
-
-/* Special treatment for header */
-header {
-    background: rgba(255, 255, 255, 0.98);
-    padding: 30px;
-    border-radius: 8px;
-    border-top: 3px solid #7B8B6C;
-    margin-bottom: 40px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-}
-
 
 button {
     background: none;
