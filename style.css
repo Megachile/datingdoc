@@ -45,26 +45,41 @@ p {
     margin-bottom: 15px;
 }
 
+.gallery {
+    column-count: 3;
+    column-gap: 20px;
+}
+
 .gallery img {
     width: 100%;
     height: auto;
-    max-height: 300px;
-    object-fit: contain;  /* Shows whole image instead of cropping */
-    background: #f0f0f0;  /* Light background for letterboxing */
+    margin-bottom: 20px;
+    display: block;
+    border-radius: 5px;
+}
+
+/* Responsive columns */
+@media (max-width: 768px) {
+    .gallery { column-count: 2; }
+}
+@media (max-width: 480px) {
+    .gallery { column-count: 1; }
 }
 
 button {
-    background: #333;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    background: none;
+    color: #666;
+    border: 1px solid #ddd;
+    padding: 5px 12px;
+    border-radius: 20px;
     cursor: pointer;
-    margin-bottom: 10px;
+    font-size: 14px;
+    transition: all 0.2s;
 }
 
 button:hover {
-    background: #555;
+    background: #f0f0f0;
+    border-color: #999;
 }
 
 .gallery-section {
