@@ -52,21 +52,25 @@ p {
 }
 
 .gallery {
-  column-width: 300px;
+  display: block; /* make sure it's not flex or grid */
+  column-width: 350px;  /* how wide each column should be */
   column-gap: 20px;
-  max-width: 1000px;
+  width: 100%;
+  max-width: none;
   margin: 0 auto;
+  padding: 0;
 }
 
 
 .gallery img {
-  width: 100%;
+  width: 100%;         /* fill column width */
   height: auto;
   display: block;
   margin-bottom: 20px;
   border-radius: 5px;
   break-inside: avoid;
 }
+
 
 
 button {
