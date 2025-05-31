@@ -45,27 +45,12 @@ p {
     margin-bottom: 15px;
 }
 
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: 10px;  /* Small row height for flexibility */
-    gap: 20px;
-}
-
 .gallery img {
     width: 100%;
-    height: auto;  /* Let images keep their aspect ratio */
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-/* Make images span rows based on their height */
-.gallery img:nth-child(odd) {
-    grid-row: span 20;  /* Adjust these values based on your images */
-}
-
-.gallery img:nth-child(even) {
-    grid-row: span 25;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;  /* Shows whole image instead of cropping */
+    background: #f0f0f0;  /* Light background for letterboxing */
 }
 
 button {
