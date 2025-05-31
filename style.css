@@ -51,37 +51,12 @@ p {
     margin-bottom: 15px;
 }
 
-.gallery-section {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 30px;
-  margin-bottom: 40px;
-  border-radius: 8px;
-  border-left: 4px solid #8B7355;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-}
-
-.gallery-section:nth-child(odd) {
-  border-left-color: #7B8B6C; /* Sage green */
-}
-
-.gallery-section:nth-child(even) {
-  border-left-color: #8B7355; /* Warm brown */
-}
-
-/* Masonry layout */
 .gallery {
   column-count: 3;
   column-gap: 20px;
+  padding: 20px;
   max-width: 1000px;
   margin: 0 auto;
-}
-
-@media (max-width: 900px) {
-  .gallery { column-count: 2; }
-}
-
-@media (max-width: 600px) {
-  .gallery { column-count: 1; }
 }
 
 .gallery img {
@@ -92,8 +67,6 @@ p {
   border-radius: 5px;
   break-inside: avoid;
 }
-
-
 
 
 button {
