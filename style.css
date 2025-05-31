@@ -12,6 +12,12 @@ body {
     margin: 0 auto;
     padding: 20px;
     background: #fafafa;
+
+        background: 
+        linear-gradient(rgba(250, 250, 250, 0.95), rgba(250, 250, 250, 0.95)),
+        url('images/subtle-texture.jpg');
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 header {
@@ -49,8 +55,10 @@ p {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  padding: 20px; /* Optional, but adds breathing room around the whole gallery */
+  padding: 20px;
   box-sizing: border-box;
+  max-width: 1000px; /* Prevents an unlimited number of columns */
+  margin: 0 auto; /* Center the gallery */
 }
 
 .gallery img {
