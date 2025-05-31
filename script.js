@@ -29,12 +29,26 @@ async function displayGallery(galleryType) {
 
     const shuffled = images.sort(() => Math.random() - 0.5);
 
-    // --- Responsive image count logic ---
+    // --- New logic: prefer 4, fall back to 3, 2, 1 based on available width
     const containerWidth = container.offsetWidth;
     const minImageWidth = 250;
-    const maxImages = 8;
-    const imagesPerRow = Math.floor(containerWidth / minImageWidth) || 1; // fallback to at least 1
-    const totalImagesToShow = Math.min(imagesPerRow * 2, maxImages); // cap at 2 rows, or fewer if space is tight
+    const preferredCount = 4;
+    const maxCount = 6;
+
+    let imagesPerRow = Math.floor(containerWidth / minImageWidth);
+    let totalImagesToShow;
+
+    if (imagesPerRow >= preferredCount) {
+        totalImagesToShow = preferredCount;
+    } else if (imagesPerRow >= 3) {
+        totalImagesToShow = 3;
+    } else if (imagesPerRow >= 2) {
+        totalImagesToShow = 2;
+    } else {
+        totalImagesToShow = 1;
+    }
+
+    totalImagesToShow = Math.min(totalImagesToShow, maxCount, images.length);
 
     const imagesToShow = shuffled.slice(0, totalImagesToShow);
 
@@ -49,6 +63,7 @@ async function displayGallery(galleryType) {
 
     console.log(`${galleryType} gallery - Actual images in DOM:`, container.querySelectorAll('img').length);
 }
+
 
 
 async function shuffleGallery(galleryType) {
