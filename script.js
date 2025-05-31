@@ -31,11 +31,10 @@ async function displayGallery(galleryType) {
 
     const containerWidth = container.offsetWidth;
     const minImageWidth = 250;
-    const hardCap = 4;
 
     // Compute how many *can* fit at min width, but don't exceed hard cap
     const imagesThatFit = Math.floor(containerWidth / minImageWidth);
-    const totalImagesToShow = Math.min(imagesThatFit, hardCap, images.length);
+    const totalImagesToShow = Math.min(4, images.length);
 
     const imagesToShow = shuffled.slice(0, totalImagesToShow);
 

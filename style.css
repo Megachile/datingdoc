@@ -14,7 +14,7 @@ body {
     background: #fafafa;
 
         background: 
-        linear-gradient(rgba(250, 250, 250, 0.65), rgba(250, 250, 250, 0.65)),
+        linear-gradient(rgba(250, 250, 250, 0.3), rgba(250, 250, 250, 0.3)),
         url('images/subtle-texture.jpg');
     background-attachment: fixed;
     background-size: cover;
@@ -54,12 +54,16 @@ p {
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-flow: row;
   gap: 20px;
   padding: 20px;
   box-sizing: border-box;
-  max-width: 1000px; /* optional cap on gallery width */
-  margin: 0 auto; /* center it horizontally */
+  justify-content: center; /* center the whole grid content */
+  align-items: start;
+  max-width: 1000px;
+  margin: 0 auto;
 }
+
 
 .gallery img {
   width: 100%;
