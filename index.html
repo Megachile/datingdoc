@@ -8,10 +8,12 @@
 </head>
 <body>
   <header>
-    <div class="static-photos">
-      <img src="images/recent1.jpg" alt="Recent photo">
-      <img src="images/recent2.jpg" alt="Recent photo">
-      <img src="images/recent3.jpg" alt="Recent photo">
+    <div class="text-box">
+      <div class="static-photos">
+        <img src="images/recent1.jpg" alt="Recent photo">
+        <img src="images/recent2.jpg" alt="Recent photo">
+        <img src="images/recent3.jpg" alt="Recent photo">
+      </div>
     </div>
   </header>
 
@@ -44,25 +46,25 @@
     </section>
 
     <section class="gallery-section">
-      <h3>Pics of me from random points in my life:</h3>
-      <button onclick="shuffleGallery('life')">Shuffle</button>
       <div class="gallery-box">
+        <h3>Pics of me from random points in my life:</h3>
+        <button onclick="shuffleGallery('life')">Shuffle</button>
         <div id="life-gallery" class="gallery"></div>
       </div>
     </section>
 
     <section class="gallery-section">
-      <h3>Images I've made that I like:</h3>
-      <button onclick="shuffleGallery('art')">Shuffle</button>
       <div class="gallery-box">
+        <h3>Images I've made that I like:</h3>
+        <button onclick="shuffleGallery('art')">Shuffle</button>
         <div id="art-gallery" class="gallery"></div>
       </div>
     </section>
 
     <section class="gallery-section">
-      <h3>Some favorite things that have been meaningful in my life:</h3>
-      <button onclick="shuffleGallery('interests')">Shuffle</button>
       <div class="gallery-box">
+        <h3>Some favorite things that have been meaningful in my life:</h3>
+        <button onclick="shuffleGallery('interests')">Shuffle</button>
         <div id="interests-gallery" class="gallery"></div>
       </div>
     </section>
