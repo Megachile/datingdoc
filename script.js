@@ -29,7 +29,7 @@ async function displayGallery(galleryType) {
 
     const shuffled = images.sort(() => Math.random() - 0.5);
     // Compute how many *can* fit at min width, but don't exceed hard cap
-    const imagesToShow = shuffled.slice(0, Math.min(8, images.length));
+    const imagesToShow = shuffled.slice(0, Math.min(4, images.length));
 
     console.log(`${galleryType} gallery - Images to show:`, imagesToShow.length);
     console.log(`${galleryType} gallery - Image names:`, imagesToShow);
