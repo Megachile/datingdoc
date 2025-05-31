@@ -47,16 +47,25 @@ p {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-auto-rows: 10px;  /* Small row height for flexibility */
     gap: 20px;
-    margin: 20px 0;
 }
 
 .gallery img {
     width: 100%;
-    height: 250px;
+    height: auto;  /* Let images keep their aspect ratio */
     object-fit: cover;
     border-radius: 5px;
+}
+
+/* Make images span rows based on their height */
+.gallery img:nth-child(odd) {
+    grid-row: span 20;  /* Adjust these values based on your images */
+}
+
+.gallery img:nth-child(even) {
+    grid-row: span 25;
 }
 
 button {
