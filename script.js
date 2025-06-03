@@ -88,4 +88,55 @@ window.onload = async function() {
     await displayGallery('interests');
 };
 
+async function loadInterestCards() {
+  console.log("loadInterestCards() called");
+
+  const container = document.getElementById("interests-gallery");
+  container.innerHTML = ''; // clear it first
+
+  try {
+    const response = await fetch("https://api.github.com/repos/megachile/datingdoc/contents/images/interests");
+    const folders = await response.json();
+
+    const interestFolders = folders.filter(item => item.type === "dir");
+
+    for (const folder of interestFolders) {
+      const folderName = folder.name;
+      const filesResponse = await fetch(folder.url);
+      const files = await filesResponse.json();
+      console.log(`Files in ${folderName}:`, files.map(f => f.name));
+      const imageFile = files.find(f => f.name.match(/\.(jpe?g|png|gif)$/i));
+      const textFile = files.find(f => f.name === 'text.html' || f.name === 'text.txt');
+
+      let text = '';
+      if (textFile) {
+        const textContentResponse = await fetch(textFile.download_url);
+        text = await textContentResponse.text();
+        console.log("Text file content:", text);
+
+      }
+
+      const imageTag = imageFile
+        ? `<img src="https://megachile.github.io/datingdoc/images/interests/${folderName}/${imageFile.name}" alt="${folderName}" />`
+        : '';
+
+    const cardHTML = `
+    <div class="interest-card">
+        ${imageTag}
+        <div class="interest-text">${text}</div>
+    </div>
+    `;
+
+    console.log("Card HTML:", cardHTML); // ← right here
+
+    container.innerHTML += cardHTML;
+
+    }
+  } catch (error) {
+    console.error("Error loading interest cards:", error);
+  }
+}
+
+
 loadRecentPhotos();
+loadInterestCards();

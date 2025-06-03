@@ -59,17 +59,14 @@
     </section>
 
     <section class="gallery-section">
-      <div class="gallery-box">
+    <div class="gallery-box">
         <h3>Some favorite things that have been meaningful in my life:</h3>
-        <button onclick="shuffleGallery('interests')">Shuffle</button>
-        <div id="interests-gallery" class="gallery"></div>
-      </div>
+        <button onclick="loadInterestCards()">Refresh</button>
+        <div id="interests-gallery" class="gallery interests-gallery"></div>
+    </div>
     </section>
-  </main>
 
-  <footer>
-    <p>(refresh to shuffle)</p>
-  </footer>
+  </main>
 
   <script src="script.js"></script>
 </body>
