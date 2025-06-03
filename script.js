@@ -82,12 +82,6 @@ async function shuffleGallery(galleryType) {
     await displayGallery(galleryType);
 }
 
-window.onload = async function() {
-    await displayGallery('life');
-    await displayGallery('art');
-    await displayGallery('interests');
-};
-
 async function loadInterestCards() {
   console.log("loadInterestCards() called");
 
@@ -100,7 +94,9 @@ async function loadInterestCards() {
 
     const interestFolders = folders.filter(item => item.type === "dir");
 
-    for (const folder of interestFolders) {
+
+    const shuffledFolders = interestFolders.sort(() => Math.random() - 0.5).slice(0, 3);
+    for (const folder of shuffledFolders) {
       const folderName = folder.name;
       const filesResponse = await fetch(folder.url);
       const files = await filesResponse.json();
@@ -127,8 +123,6 @@ async function loadInterestCards() {
     </div>
     `;
 
-    console.log("Card HTML:", cardHTML); // ← right here
-
     container.innerHTML += cardHTML;
 
     }
@@ -137,6 +131,46 @@ async function loadInterestCards() {
   }
 }
 
+const TWEET_URLS = [
+  "https://twitter.com/alicemazzy/status/1801475410896818270",
+  "https://twitter.com/bschne/status/1811012184597545051",
+  "https://twitter.com/thinkagainer/status/1841639619659432184",
+  "https://twitter.com/hiAndrewQuinn/status/1843009880783028722",
+  "https://twitter.com/ScarletAstrorum/status/1860720169015722165",
+  "https://twitter.com/adam_kranz/status/1852513827038064866",
+  "https://twitter.com/thogge/status/1871578387304812824",
+  "https://twitter.com/Ruesavatar/status/1882162603138670862",
+  "https://twitter.com/taijitu_sees/status/1898058358852403242",
+  "https://twitter.com/911witchery/status/1898558814468579613",
+  "https://twitter.com/daniellellecco/status/1908911166748840055",
+  "https://twitter.com/SketchesbyBoze/status/1911523502110413274",
+  "https://twitter.com/_samantha_joy/status/1912485609760862505",
+  "https://twitter.com/taijitu_sees/status/1915103500234797150",
+  "https://twitter.com/Romy_Holland/status/1916727710493348166",
+  "https://twitter.com/tasshinfogleman/status/1918685888164552785",
+  "https://twitter.com/carinmariederry/status/1920913459908104297"
+];
 
-loadRecentPhotos();
-loadInterestCards();
+
+function loadRandomTweet() {
+  const container = document.getElementById("tweet-container");
+  const randomURL = TWEET_URLS[Math.floor(Math.random() * TWEET_URLS.length)];
+  container.innerHTML = `
+    <blockquote class="twitter-tweet" data-theme="light">
+      <a href="${randomURL}"></a>
+    </blockquote>
+  `;
+
+  if (window.twttr?.widgets) {
+    window.twttr.widgets.load(container);
+  }
+}
+
+window.onload = async function () {
+  await displayGallery('life');
+  await displayGallery('art');
+  await displayGallery('interests');
+  loadRecentPhotos();
+  loadInterestCards();
+  loadRandomTweet(); 
+};

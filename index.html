@@ -43,6 +43,15 @@
     </section>
 
     <section class="gallery-section">
+    <div class="gallery-box">
+        <h3>Who wants to do this with me?</h3>
+        <button onclick="loadRandomTweet()">Refresh</button>
+        <div id="tweet-container"></div>
+    </div>
+    </section>
+
+
+    <section class="gallery-section">
       <div class="gallery-box">
         <h3>Pics of me from random points in my life:</h3>
         <button onclick="shuffleGallery('life')">Shuffle</button>
@@ -61,7 +70,7 @@
     <section class="gallery-section">
     <div class="gallery-box">
         <h3>Some favorite things that have been meaningful in my life:</h3>
-        <button onclick="loadInterestCards()">Refresh</button>
+        <button onclick="loadInterestCards()">Shuffle</button>
         <div id="interests-gallery" class="gallery interests-gallery"></div>
     </div>
     </section>
@@ -69,5 +78,7 @@
   </main>
 
   <script src="script.js"></script>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 </body>
 </html>
