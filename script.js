@@ -21,6 +21,30 @@ async function loadGalleryImages(galleryType) {
     }
 }
 
+async function loadRecentPhotos() {
+  const container = document.getElementById("recent-photos");
+
+  try {
+    const response = await fetch("https://api.github.com/repos/megachile/datingdoc/contents/images/recent");
+    const data = await response.json();
+
+    if (!Array.isArray(data)) {
+      throw new Error(`GitHub API returned non-array: ${JSON.stringify(data)}`);
+    }
+
+    const images = data
+      .filter(file => file.type === "file" && file.name.match(/\.(jpe?g|png|gif)$/i))
+      .slice(0, 3); // Expecting exactly 3
+
+    container.innerHTML = images.map(file => `
+      <img src="https://megachile.github.io/datingdoc/images/recent/${file.name}" alt="Recent photo" />
+    `).join('');
+  } catch (error) {
+    console.error("Error loading recent photos:", error);
+  }
+}
+
+
 async function displayGallery(galleryType) {
     const container = document.getElementById(`${galleryType}-gallery`);
     const images = await loadGalleryImages(galleryType);
@@ -63,3 +87,5 @@ window.onload = async function() {
     await displayGallery('art');
     await displayGallery('interests');
 };
+
+loadRecentPhotos();
