@@ -86,8 +86,8 @@ body {
   }
 }
 .static-photos img {
-  width: 3000px;
-  height: 3000px;
+  width: 500px;
+  height: 500px;
   object-fit: cover;
   border-radius: 10px;
 }
