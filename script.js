@@ -2,6 +2,16 @@ const GITHUB_USER = 'Megachile';
 const GITHUB_REPO = 'datingdoc';
 
 async function loadGalleryImages(galleryType) {
+    const cacheKey = `gallery-${galleryType}`;
+    const cached = sessionStorage.getItem(cacheKey);
+    if (cached) {
+        try {
+            return JSON.parse(cached);
+        } catch (e) {
+            console.warn(`Cache parse failed for ${cacheKey}, ignoring cache.`);
+        }
+    }
+
     try {
         const response = await fetch(
             `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/images/${galleryType}`
@@ -12,14 +22,18 @@ async function loadGalleryImages(galleryType) {
             throw new Error(`GitHub API returned non-array: ${JSON.stringify(files)}`);
         }
 
-        return files
+        const images = files
             .filter(file => /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name))
             .map(file => file.name);
+
+        sessionStorage.setItem(cacheKey, JSON.stringify(images));
+        return images;
     } catch (error) {
         console.error(`Error loading ${galleryType} images:`, error);
         return [];
     }
 }
+
 
 async function loadRecentPhotos() {
   const container = document.getElementById("recent-photos");
@@ -93,7 +107,7 @@ async function loadInterestCards() {
     const folders = await response.json();
 
     const interestFolders = folders.filter(item => item.type === "dir");
-    const shuffledFolders = interestFolders.sort(() => Math.random() - 0.5).slice(0, 3);
+    const shuffledFolders = interestFolders.sort(() => Math.random() - 0.5).slice(0, 4);
     
     for (const folder of shuffledFolders) {
       const folderName = folder.name;
