@@ -93,38 +93,49 @@ async function loadInterestCards() {
     const folders = await response.json();
 
     const interestFolders = folders.filter(item => item.type === "dir");
-
-
     const shuffledFolders = interestFolders.sort(() => Math.random() - 0.5).slice(0, 3);
+    
     for (const folder of shuffledFolders) {
       const folderName = folder.name;
       const filesResponse = await fetch(folder.url);
       const files = await filesResponse.json();
-      console.log(`Files in ${folderName}:`, files.map(f => f.name));
+      
+      // Get image file
       const imageFile = files.find(f => f.name.match(/\.(jpe?g|png|gif)$/i));
+      
+      // Get text file if it exists
       const textFile = files.find(f => f.name === 'text.html' || f.name === 'text.txt');
-
-      let text = '';
+      
+      // Format folder name as title (replace hyphens/underscores with spaces, capitalize)
+      const title = folderName
+        .replace(/[-_]/g, ' ')
+        .replace(/\b\w/g, char => char.toUpperCase());
+      
+      // Build content
+      let contentHTML = `<h4>${title}</h4>`;
+      
       if (textFile) {
-        const textContentResponse = await fetch(textFile.download_url);
-        text = await textContentResponse.text();
-        console.log("Text file content:", text);
-
+        const textResponse = await fetch(textFile.download_url);
+        const text = await textResponse.text();
+        // Extract just the <p> content if it exists
+        const pMatch = text.match(/<p[^>]*>(.*?)<\/p>/s);
+        if (pMatch) {
+          contentHTML += `<p>${pMatch[1].trim()}</p>`;
+        }
       }
-
+      
       const imageTag = imageFile
-        ? `<img src="https://megachile.github.io/datingdoc/images/interests/${folderName}/${imageFile.name}" alt="${folderName}" />`
+        ? `<img src="https://megachile.github.io/datingdoc/images/interests/${folderName}/${imageFile.name}" alt="${title}" />`
         : '';
 
-    const cardHTML = `
-    <div class="interest-card">
-        ${imageTag}
-        <div class="interest-text">${text}</div>
-    </div>
-    `;
+      const cardHTML = `
+        <div class="interest-card">
+          ${imageTag}
+          <div class="interest-text">${contentHTML}</div>
+        </div>
+      `;
 
-    container.innerHTML += cardHTML;
-
+      container.innerHTML += cardHTML;
     }
   } catch (error) {
     console.error("Error loading interest cards:", error);
@@ -196,9 +207,20 @@ async function fetchPlaylistVideos() {
     const response = await fetch(
       `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${PLAYLIST_ID}&key=${YOUTUBE_API_KEY}`
     );
+    
+    if (!response.ok) {
+      console.error('API Error:', response.status, response.statusText);
+      return;
+    }
+    
     const data = await response.json();
-    playlistVideos = data.items.map(item => item.snippet.resourceId.videoId);
-    loadRandomSong();
+    
+    if (data.items) {
+      playlistVideos = data.items.map(item => item.snippet.resourceId.videoId);
+      loadRandomSong();
+    } else {
+      console.error('No items in response:', data);
+    }
   } catch (error) {
     console.error('Error fetching playlist:', error);
   }
