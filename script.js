@@ -174,3 +174,53 @@ window.onload = async function () {
   loadInterestCards();
   loadRandomTweet(); 
 };
+
+const YOUTUBE_API_KEY = 'AIzaSyBIb3kGAIu7YPjy1J7-aQTOGHCcjDmvsNM';
+const PLAYLIST_ID = 'PLg1iF_DuBDtcJDdvv1UOA2l3GtOuBPkDA';
+let player;
+let playlistVideos = [];
+
+// Load YouTube IFrame API
+const tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+const firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// Called automatically when YouTube API is ready
+function onYouTubeIframeAPIReady() {
+  fetchPlaylistVideos();
+}
+
+async function fetchPlaylistVideos() {
+  try {
+    const response = await fetch(
+      `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=${PLAYLIST_ID}&key=${YOUTUBE_API_KEY}`
+    );
+    const data = await response.json();
+    playlistVideos = data.items.map(item => item.snippet.resourceId.videoId);
+    loadRandomSong();
+  } catch (error) {
+    console.error('Error fetching playlist:', error);
+  }
+}
+
+function loadRandomSong() {
+  if (playlistVideos.length === 0) return;
+  
+  const randomVideoId = playlistVideos[Math.floor(Math.random() * playlistVideos.length)];
+  
+  if (player) {
+    player.loadVideoById(randomVideoId);
+  } else {
+    player = new YT.Player('youtube-player', {
+      height: '315',
+      width: '560',
+      videoId: randomVideoId,
+      playerVars: {
+        'autoplay': 0,
+        'modestbranding': 1,
+        'rel': 0
+      }
+    });
+  }
+}
