@@ -4,7 +4,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: Georgia, serif;
   line-height: 1.6;
@@ -16,6 +15,25 @@ body {
   background-size: cover;
   padding: 20px;
   font-size: 19px;
+}
+
+/* Add a main container constraint */
+main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Also constrain the header */
+header {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.text-box {
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px 40px; /* Slightly more horizontal padding */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 /* === Static Header Photo Strip === */
@@ -51,8 +69,9 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   margin-top: 15px;
   margin-bottom: 40px;
-  width: 100%;
-  max-width: none;
+  max-width: 1000px; /* Galleries can be a bit wider */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* === Masonry Gallery Layout === */
@@ -92,6 +111,11 @@ body {
   border-radius: 10px;
 }
 
+#tweet-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
 
 /* === Typography and Section Structure === */
 h1, h2, h3 {
@@ -109,6 +133,7 @@ p {
 .gallery-section h3 {
   margin-bottom: 10px;
 }
+
 
 /* === Buttons === */
 button {
@@ -137,32 +162,77 @@ footer {
 }
 
 .interests-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px 0;
 }
 
 .interest-card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 10px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.interest-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .interest-card img {
   width: 100%;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  object-fit: cover;
+  height: auto; /* Let images keep their natural height */
+  max-height: 300px; /* But cap it so they don't get too tall */
+  object-fit: contain; /* Show the whole image */
+  background: #f5f5f5; /* Light background for letterboxing */
+  margin-bottom: 0;
 }
 
+
 .interest-text {
-  background: rgba(255, 0, 0, 0.1); /* light red to see if text is there */
-  font-size: 16px;
-  color: #000;
+  padding: 20px;
+  background: white; /* Remove the red background */
+}
+
+.interest-text h4 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #333;
+  font-weight: 600;
+}
+
+.interest-text p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.interest-text a {
+  color: #7B8B6C;
+  text-decoration: underline; /* Make it more obvious */
+  text-decoration-style: dotted; /* Softer than solid */
+  text-underline-offset: 2px; /* Give it some breathing room */
+  transition: all 0.2s;
+}
+
+.interest-text a:hover {
+  text-decoration-style: solid;
+  color: #5A6A4C; /* Darker on hover */
+}
+
+/* Cards without images */
+.interest-card:not(:has(img)) {
+  background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%);
+  min-height: 200px; /* Match the height of cards with images */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.interest-card:not(:has(img)) .interest-text {
+  padding: 30px;
+  text-align: center;
 }
