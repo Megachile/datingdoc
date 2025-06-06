@@ -120,10 +120,8 @@ async function loadInterestCards() {
       // Get text file if it exists
       const textFile = files.find(f => f.name === 'text.html' || f.name === 'text.txt');
       
-      // Format folder name as title (replace hyphens/underscores with spaces, capitalize)
-      const title = folderName
-        .replace(/[-_]/g, ' ')
-        .replace(/\b\w/g, char => char.toUpperCase());
+      // Use folder name as-is, just replace hyphens/underscores with spaces
+      const title = folderName.replace(/[-_]/g, ' ');
       
       // Build content
       let contentHTML = `<h4>${title}</h4>`;
