@@ -1,63 +1,79 @@
 const GITHUB_USER = 'Megachile';
 const GITHUB_REPO = 'datingdoc';
+const CACHE_DURATION = 3600000; // 1 hour in milliseconds
 
-async function loadGalleryImages(galleryType) {
-    const cacheKey = `gallery-${galleryType}`;
-    const cached = sessionStorage.getItem(cacheKey);
-    if (cached) {
-        try {
-            return JSON.parse(cached);
-        } catch (e) {
-            console.warn(`Cache parse failed for ${cacheKey}, ignoring cache.`);
+// Generic GitHub API fetch with caching
+async function fetchGitHubContent(path, useCache = true) {
+    const cacheKey = `github-${path}`;
+    
+    if (useCache) {
+        const cached = sessionStorage.getItem(cacheKey);
+        if (cached) {
+            try {
+                const { data, timestamp } = JSON.parse(cached);
+                // Check if cache is still fresh
+                if (Date.now() - timestamp < CACHE_DURATION) {
+                    return data;
+                }
+            } catch (e) {
+                console.warn(`Cache parse failed for ${cacheKey}, fetching fresh data`);
+            }
         }
     }
 
     try {
         const response = await fetch(
-            `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/images/${galleryType}`
+            `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${path}`
         );
-        const files = await response.json();
-
-        if (!Array.isArray(files)) {
-            throw new Error(`GitHub API returned non-array: ${JSON.stringify(files)}`);
+        
+        if (!response.ok) {
+            throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
         }
-
-        const images = files
-            .filter(file => /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name))
-            .map(file => file.name);
-
-        sessionStorage.setItem(cacheKey, JSON.stringify(images));
-        return images;
+        
+        const data = await response.json();
+        
+        // Cache with timestamp
+        if (useCache) {
+            sessionStorage.setItem(cacheKey, JSON.stringify({
+                data: data,
+                timestamp: Date.now()
+            }));
+        }
+        
+        return data;
     } catch (error) {
-        console.error(`Error loading ${galleryType} images:`, error);
-        return [];
+        console.error(`Error fetching ${path}:`, error);
+        return null;
     }
+}
+
+async function loadGalleryImages(galleryType) {
+    const files = await fetchGitHubContent(`images/${galleryType}`);
+    if (!files) return [];
+    
+    return files
+        .filter(file => /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name))
+        .map(file => file.name);
 }
 
 
 async function loadRecentPhotos() {
-  const container = document.getElementById("recent-photos");
-
-  try {
-    const response = await fetch("https://api.github.com/repos/megachile/datingdoc/contents/images/recent");
-    const data = await response.json();
-
-    if (!Array.isArray(data)) {
-      throw new Error(`GitHub API returned non-array: ${JSON.stringify(data)}`);
+    const container = document.getElementById("recent-photos");
+    const files = await fetchGitHubContent('images/recent');
+    
+    if (!files) {
+        container.innerHTML = '<p>Unable to load photos</p>';
+        return;
     }
 
-    const images = data
-      .filter(file => file.type === "file" && file.name.match(/\.(jpe?g|png|gif)$/i))
-      .slice(0, 3); // Expecting exactly 3
+    const images = files
+        .filter(file => file.type === "file" && file.name.match(/\.(jpe?g|png|gif)$/i))
+        .slice(0, 3);
 
     container.innerHTML = images.map(file => `
-      <img src="https://megachile.github.io/datingdoc/images/recent/${file.name}" alt="Recent photo" />
+        <img src="https://megachile.github.io/datingdoc/images/recent/${file.name}" alt="Recent photo" />
     `).join('');
-  } catch (error) {
-    console.error("Error loading recent photos:", error);
-  }
 }
-
 
 async function displayGallery(galleryType) {
     const container = document.getElementById(`${galleryType}-gallery`);
@@ -89,7 +105,15 @@ async function displayGallery(galleryType) {
 }
 
 
-
+function clearCache() {
+    const keys = Object.keys(sessionStorage);
+    keys.forEach(key => {
+        if (key.startsWith('github-')) {
+            sessionStorage.removeItem(key);
+        }
+    });
+    console.log('Cache cleared!');
+}
 
 
 async function shuffleGallery(galleryType) {
@@ -97,61 +121,58 @@ async function shuffleGallery(galleryType) {
 }
 
 async function loadInterestCards() {
-  console.log("loadInterestCards() called");
+    console.log("loadInterestCards() called");
+    const container = document.getElementById("interests-gallery");
+    container.innerHTML = '';
 
-  const container = document.getElementById("interests-gallery");
-  container.innerHTML = ''; // clear it first
-
-  try {
-    const response = await fetch("https://api.github.com/repos/megachile/datingdoc/contents/images/interests");
-    const folders = await response.json();
+    const folders = await fetchGitHubContent('images/interests');
+    if (!folders) {
+        container.innerHTML = '<p>Unable to load interests</p>';
+        return;
+    }
 
     const interestFolders = folders.filter(item => item.type === "dir");
     const shuffledFolders = interestFolders.sort(() => Math.random() - 0.5).slice(0, 4);
     
     for (const folder of shuffledFolders) {
-      const folderName = folder.name;
-      const filesResponse = await fetch(folder.url);
-      const files = await filesResponse.json();
-      
-      // Get image file
-      const imageFile = files.find(f => f.name.match(/\.(jpe?g|png|gif)$/i));
-      
-      // Get text file if it exists
-      const textFile = files.find(f => f.name === 'text.html' || f.name === 'text.txt');
-      
-      // Use folder name as-is, just replace hyphens/underscores with spaces
-      const title = folderName.replace(/[-_]/g, ' ');
-      
-      // Build content
-      let contentHTML = `<h4>${title}</h4>`;
-      
-      if (textFile) {
-        const textResponse = await fetch(textFile.download_url);
-        const text = await textResponse.text();
-        // Extract just the <p> content if it exists
-        const pMatch = text.match(/<p[^>]*>(.*?)<\/p>/s);
-        if (pMatch) {
-          contentHTML += `<p>${pMatch[1].trim()}</p>`;
+        const folderName = folder.name;
+        const files = await fetchGitHubContent(`images/interests/${folderName}`);
+        
+        if (!files) continue;
+        
+        const imageFile = files.find(f => f.name.match(/\.(jpe?g|png|gif)$/i));
+        const textFile = files.find(f => f.name === 'text.html' || f.name === 'text.txt');
+        
+        const title = folderName.replace(/[-_]/g, ' ');
+        let contentHTML = `<h4>${title}</h4>`;
+        
+        if (textFile) {
+            // Text files are small, so we can fetch them without caching
+            try {
+                const textResponse = await fetch(textFile.download_url);
+                const text = await textResponse.text();
+                const pMatch = text.match(/<p[^>]*>(.*?)<\/p>/s);
+                if (pMatch) {
+                    contentHTML += `<p>${pMatch[1].trim()}</p>`;
+                }
+            } catch (e) {
+                console.error('Error loading text file:', e);
+            }
         }
-      }
-      
-      const imageTag = imageFile
-        ? `<img src="https://megachile.github.io/datingdoc/images/interests/${folderName}/${imageFile.name}" alt="${title}" />`
-        : '';
+        
+        const imageTag = imageFile
+            ? `<img src="https://megachile.github.io/datingdoc/images/interests/${folderName}/${imageFile.name}" alt="${title}" />`
+            : '';
 
-      const cardHTML = `
-        <div class="interest-card">
-          ${imageTag}
-          <div class="interest-text">${contentHTML}</div>
-        </div>
-      `;
+        const cardHTML = `
+            <div class="interest-card">
+                ${imageTag}
+                <div class="interest-text">${contentHTML}</div>
+            </div>
+        `;
 
-      container.innerHTML += cardHTML;
+        container.innerHTML += cardHTML;
     }
-  } catch (error) {
-    console.error("Error loading interest cards:", error);
-  }
 }
 
 const TWEET_URLS = [
@@ -188,15 +209,6 @@ function loadRandomTweet() {
     window.twttr.widgets.load(container);
   }
 }
-
-window.onload = async function () {
-  await displayGallery('life');
-  await displayGallery('art');
-  await displayGallery('interests');
-  loadRecentPhotos();
-  loadInterestCards();
-  loadRandomTweet(); 
-};
 
 const YOUTUBE_API_KEY = 'AIzaSyBIb3kGAIu7YPjy1J7-aQTOGHCcjDmvsNM';
 const PLAYLIST_ID = 'PLg1iF_DuBDtcJDdvv1UOA2l3GtOuBPkDA';
@@ -258,3 +270,12 @@ function loadRandomSong() {
     });
   }
 }
+
+window.onload = async function () {
+  await displayGallery('life');
+  await displayGallery('art');
+  await displayGallery('interests');
+  loadRecentPhotos();
+  loadInterestCards();
+  loadRandomTweet(); 
+};
