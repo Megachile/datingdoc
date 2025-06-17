@@ -125,7 +125,7 @@ async function loadInterestCards() {
     const container = document.getElementById("interests-gallery");
     container.innerHTML = '';
 
-    const folders = await fetchGitHubContent('images/interests');
+    const folders = await fetchGitHubContent('images/interests_new');
     if (!folders) {
         container.innerHTML = '<p>Unable to load interests</p>';
         return;
@@ -136,7 +136,7 @@ async function loadInterestCards() {
     
     for (const folder of shuffledFolders) {
         const folderName = folder.name;
-        const files = await fetchGitHubContent(`images/interests/${folderName}`);
+        const files = await fetchGitHubContent(`images/interests_new/${folderName}`);
         
         if (!files) continue;
         
@@ -161,7 +161,7 @@ async function loadInterestCards() {
         }
         
         const imageTag = imageFile
-            ? `<img src="https://megachile.github.io/datingdoc/images/interests/${folderName}/${imageFile.name}" alt="${title}" />`
+            ? `<img src="https://megachile.github.io/datingdoc/images/interests_new/${folderName}/${imageFile.name}" alt="${title}" />`
             : '';
 
         const cardHTML = `
