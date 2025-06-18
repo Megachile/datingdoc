@@ -1,18 +1,29 @@
 const GITHUB_USER = 'Megachile';
 const GITHUB_REPO = 'datingdoc';
-const CACHE_DURATION = 3600000; // 1 hour in milliseconds
+const CACHE_DURATION = 24 * 3600000; // 24 hours in milliseconds
 
-// Generic GitHub API fetch with caching
+// Pre-loaded cache for directory listings
+let directoryCache = {};
+let cacheInitialized = false;
+
+// Generic GitHub API fetch with persistent caching
 async function fetchGitHubContent(path, useCache = true) {
     const cacheKey = `github-${path}`;
     
     if (useCache) {
+        // Check memory cache first
+        if (directoryCache[path]) {
+            return directoryCache[path];
+        }
+        
+        // Check sessionStorage cache
         const cached = sessionStorage.getItem(cacheKey);
         if (cached) {
             try {
                 const { data, timestamp } = JSON.parse(cached);
-                // Check if cache is still fresh
+                // Check if cache is still fresh (24 hours)
                 if (Date.now() - timestamp < CACHE_DURATION) {
+                    directoryCache[path] = data; // Store in memory cache
                     return data;
                 }
             } catch (e) {
@@ -32,7 +43,8 @@ async function fetchGitHubContent(path, useCache = true) {
         
         const data = await response.json();
         
-        // Cache with timestamp
+        // Cache in both memory and sessionStorage
+        directoryCache[path] = data;
         if (useCache) {
             sessionStorage.setItem(cacheKey, JSON.stringify({
                 data: data,
@@ -47,6 +59,35 @@ async function fetchGitHubContent(path, useCache = true) {
     }
 }
 
+// Pre-load all directory listings at startup
+async function initializeCache() {
+    if (cacheInitialized) return;
+    
+    console.log('Initializing cache...');
+    const directories = [
+        'images/recent',
+        'images/life', 
+        'images/art',
+        'images/interests_new'
+    ];
+    
+    // Load all directories in parallel
+    const promises = directories.map(dir => fetchGitHubContent(dir));
+    await Promise.all(promises);
+    
+    // Also pre-load the interests subdirectories
+    const interestsDir = directoryCache['images/interests_new'];
+    if (interestsDir) {
+        const subDirPromises = interestsDir
+            .filter(item => item.type === "dir")
+            .map(folder => fetchGitHubContent(`images/interests_new/${folder.name}`));
+        await Promise.all(subDirPromises);
+    }
+    
+    cacheInitialized = true;
+    console.log('Cache initialization complete');
+}
+
 async function loadGalleryImages(galleryType) {
     const files = await fetchGitHubContent(`images/${galleryType}`);
     if (!files) return [];
@@ -55,7 +96,6 @@ async function loadGalleryImages(galleryType) {
         .filter(file => /\.(jpg|jpeg|png|gif|webp)$/i.test(file.name))
         .map(file => file.name);
 }
-
 
 async function loadRecentPhotos() {
     const container = document.getElementById("recent-photos");
@@ -104,7 +144,6 @@ async function displayGallery(galleryType) {
     console.log(`${galleryType} gallery - Actual images in DOM:`, container.querySelectorAll('img').length);
 }
 
-
 function clearCache() {
     const keys = Object.keys(sessionStorage);
     keys.forEach(key => {
@@ -112,9 +151,10 @@ function clearCache() {
             sessionStorage.removeItem(key);
         }
     });
+    directoryCache = {};
+    cacheInitialized = false;
     console.log('Cache cleared!');
 }
-
 
 async function shuffleGallery(galleryType) {
     await displayGallery(galleryType);
@@ -195,7 +235,6 @@ const TWEET_URLS = [
   "https://twitter.com/carinmariederry/status/1920913459908104297"
 ];
 
-
 function loadRandomTweet() {
   const container = document.getElementById("tweet-container");
   const randomURL = TWEET_URLS[Math.floor(Math.random() * TWEET_URLS.length)];
@@ -272,6 +311,10 @@ function loadRandomSong() {
 }
 
 window.onload = async function () {
+  // Initialize cache first
+  await initializeCache();
+  
+  // Then load all content
   await displayGallery('life');
   await displayGallery('art');
   await displayGallery('interests');
