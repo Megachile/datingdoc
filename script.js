@@ -140,7 +140,7 @@ async function loadInterestCards() {
         
         if (!files) continue;
         
-        const imageFile = files.find(f => f.name.match(/\.(jpe?g|png|gif)$/i));
+        const imageFile = files.find(f => f.name.match(/\.(jpe?g|png|gif|webp)$/i));
         const textFile = files.find(f => f.name === 'text.html' || f.name === 'text.txt');
         
         const title = folderName.replace(/[-_]/g, ' ');
