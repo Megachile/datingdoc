@@ -1,14 +1,601 @@
 {
   "images": {
-    "recent": [],
-    "life": [],
-    "art": [],
-    "interests_new": {}
+    "recent": [
+      "GpzWYQSbMAA1DZU.jpeg",
+      "GqPDTMyWQAAW2H-.jpeg",
+      "PXL_20250611_233116861.jpg"
+    ],
+    "life": [
+      "154545_10151367416105837_455029512_n.jpg",
+      "1916927_114706321009_5475504_n.jpg",
+      "1916927_114706401009_5761824_n.jpg",
+      "1929830_13717053302_6993_n.jpg",
+      "449438650_10226389348780583_9068538986997377502_n.jpg",
+      "454398251_10227024056408126_4816665632470159236_n.jpg",
+      "461481337_10160108175880753_3476446544956184989_n.jpg",
+      "464962353_10159894112261010_6117815496103804416_n.jpg",
+      "464979465_10234235581611494_5750451477405952569_n.jpg",
+      "465643457_10159904336811010_4986302432363797752_n.jpg",
+      "465664402_10159916938826010_595166492993586896_n.jpg",
+      "467462588_10234730908074346_7594291513549846160_n.jpg",
+      "468578569_10161933370815837_8082308915996062646_n.jpg",
+      "468637987_10160160338111010_4573402815503533566_n.jpg",
+      "468739293_10164442121202589_8276535338752992522_n.jpg",
+      "469065393_10162246203120901_9169508746618251545_n.jpg",
+      "471323050_10235437752745021_4056550734432646093_n.jpg",
+      "472471205_10170257694435641_5360124730997671828_n.jpg",
+      "472709962_10170757832635191_7256953040660810328_n.jpg",
+      "473168704_10170785489475191_2591412513333046090_n.jpg",
+      "6109916385_d0d081a338_o.jpg",
+      "GF8lhD5W0AA2WzP.jpeg",
+      "GFYPmHsWIAA7Zfx.jpeg",
+      "Gesnw6lWcAAWxBy.jpeg",
+      "GqrPva3XMAAfBYe.jpeg",
+      "GrnR1jFXoAArg1g.jpeg",
+      "GsYOcl6aQAA8Mfv.jpeg",
+      "IMG_20160710_144641529.jpg",
+      "IMG_2896.JPG",
+      "IMG_2984.JPG",
+      "IMG_3695.JPG",
+      "PXL_20230528_213100708.PORTRAIT.jpg",
+      "PXL_20250412_012912513.PORTRAIT.jpg",
+      "PXL_20250418_192905467.PORTRAIT.jpg",
+      "PXL_20250501_001538098.jpg",
+      "unnamed (6).jpg",
+      "unnamed (7).jpg",
+      "unnamed (8).jpg"
+    ],
+    "art": [
+      "0_0 (4).png",
+      "466769565_10159948384301010_2394157930984814987_n.jpg",
+      "467705398_10159986956946010_8359408097393261917_n.jpg",
+      "467987940_10160016807616010_5776551687248358978_n.jpg",
+      "468088543_10160025574041010_1279613309248458293_n.jpg",
+      "468092852_10160016808666010_27147629078323980_n.jpg",
+      "471683671_10160274306671010_346351521668273930_n.jpg",
+      "471875731_10160284563481010_1910043092641612982_n.jpg",
+      "58380037_10155925819091010_1454283120495820800_n.jpg",
+      "58419707_10155925855136010_3608068370282315776_n.jpg",
+      "61743514_10156000239006010_499525780519256064_n.jpg",
+      "62242641_10156013972021010_4075107168498483200_n.jpg",
+      "66650593_10156089539436010_1522987530486546432_n.jpg",
+      "67955996_10156148332416010_430153245415964672_n.jpg",
+      "68263293_10156148330196010_5246636743469301760_n.jpg",
+      "95329466_10156858281086010_6362043340833161216_n.jpg",
+      "95492360_10156872129616010_5378458236200419328_n.jpg",
+      "95559613_10156858212011010_1870594429346119680_n.jpg",
+      "95790615_10156858196596010_247963502973550592_n.jpg",
+      "GQcI9qfXUAEjZJC.jpeg",
+      "Gd6XIdQbUAA-uHH.jpeg",
+      "Ge0BX8zXAAAF_yB.jpeg",
+      "GeKvqk4WAAAjLr1.jpeg",
+      "Ger5M0QXoAAvEJH.jpeg",
+      "Gez_-iNWEAAdPad.jpeg",
+      "Ggf0JzzXMAAXSmC.jpeg",
+      "GgfvoD2W4AEufSL.jpeg",
+      "GhJDaA-WUAAN-nu.jpeg",
+      "GhsyRkGXIAEOdcO.jpeg",
+      "Gi0-GR2aUAAGKGv.jpeg",
+      "GiQ77lPWAAAbhTY.jpeg",
+      "Gkg65-maYAAPodo.png",
+      "GlE_5KjaIAAH9CE.jpeg",
+      "GlJIIx1XwAAxA3c.jpeg",
+      "GmM4WLcbwAATbDB.jpeg",
+      "GmM4jFKW4AA8g4n.jpeg",
+      "GmvY7C2bMAA3mck.jpeg",
+      "Gn49i3iWEAA-5BS.jpeg",
+      "GnPhG8tXMAAi1Q_.jpeg",
+      "GnTk7SiXMAAK1zt.jpeg",
+      "GnZBhREWkAErUsV.jpeg",
+      "GodhUYvXgAApwdU.jpeg",
+      "GplOSymW0AAjRi-.jpeg",
+      "GqJKZuuWsAAdxH-.jpeg",
+      "GqJKh1naoAAOcp4.jpeg",
+      "Gqtf2FEXoAAlsaR.jpeg",
+      "Gr1CbcIXcAAPrfx.jpeg",
+      "GrBxS07a4AA6Upc.jpeg",
+      "GrRSVuRW0AABqyZ.jpeg",
+      "GrRSdsxWUAAvJ_K.jpeg",
+      "GsZ6nvQaUAAtazb.jpeg",
+      "GtDRnTQXUAAgKb8.jpeg",
+      "GtmzfZSXoAAGi-e.jpeg",
+      "IMG_1137.JPG",
+      "PXL_20250406_201906482.jpg",
+      "PXL_20250412_012125357.jpg",
+      "megachile_A_dark_surreal_album_cover_for_C3r4a75h0nch_f_ia_r298_0dde7d4f-a488-4df4-871c-06966fc4c262.png",
+      "megachile_A_dark_surreal_album_cover_for_C3r4a75h0nch_f_ia_r298_88678213-dcc8-4eb9-bdc9-8d58c0832e62.png",
+      "megachile_A_landscape_painting_of_an_idyllic_river_surrounded_b_23f03927-9e3e-4f6c-9eaf-5576028e7ad3.png",
+      "megachile_A_rat-like_man_in_an_ancient_Japanese_cloak_holding_a_38c3f0a1-7268-4607-b6b8-2994aa72872d.png",
+      "megachile_A_still_life_painting_of_bread_fish_and_lemon_in_the__e83ce5f7-508b-4a6a-93c4-622bc39b9e20.png",
+      "megachile_An_ancient_Egyptian_scene_of_mysterious_black_ghostly_a4d5167c-5351-46e1-96ad-557dacb087e6.png",
+      "megachile_An_exotic_bird_with_an_extremely_long_neck_in_the_sty_b9b10cee-74b6-4c51-98a8-e77c630d622f.png",
+      "megachile_Auumbla_norse_primordial_cow_in_bauhaus_design_galler_455dcedb-4a69-4f2c-957d-4ce9ae8ea3af.png",
+      "megachile_In_the_calibration_halls_where_immigrant_geometries_p_6b629cd8-f6c0-4042-a558-cc3058bdd2b2.png",
+      "megachile_In_the_cathedral_of_second_opinions_where_the_doctors_406c55e1-09e1-4d48-aec5-dbc26b90eba1.png",
+      "megachile_In_the_chambers_between_death_and_rebirth_where_memor_cda1a65c-5285-4ce4-9483-268d837567d5.png",
+      "megachile_In_the_factory_of_hybrid_taxonomies_where_engineers_w_51493728-0b83-4702-abfa-ad60197bfb8a.png",
+      "megachile_In_the_luminescent_anatomy_studio_where_ultraviolet_i_4551f554-0016-4c50-bd82-2005d50ef810.png",
+      "megachile_Long_gnarled_tree_roots_colored_veins_in_rocks_patche_3195f1d5-88a5-4510-a6de-41c2050ca8df.png",
+      "megachile_Mandala_of_an_angel_with_rainbow_lines_and_blue_waves_e1cdfb30-4fa1-4306-acc4-b774fb822926.png",
+      "megachile_Minimalist_illustration_of_the_glow-in-the-dark_thin__86603931-c75f-48dd-9e68-b86487680c76.png",
+      "megachile_Suddenly_as_they_watched_they_heard_a_long-drawn_sigh_e75fcb43-939b-4fd3-a866-ab928e2d0ed1.png",
+      "megachile_There_was_hardly_an_individual_shrub_which_a_wander_21af1732-f4b7-46ff-83b1-f6c7e946f1c8_2.png",
+      "megachile_Where_the_black_cows_graze_on_starlight_and_digest_ge_e85ae348-fa7f-4ee0-87ca-530ae499ec96.png",
+      "megachile_a_giant_pink_pineapple_and_boiled_cabbage_a_in_the_st_db232372-fd7f-4dc0-90c1-758748340f5f.png",
+      "megachile_abstract_impasto_geology_layers_sedimentary_paint_dep_caa7ece2-6bc0-46f3-b9eb-1eb9da633061.png",
+      "megachile_christmas_wrapping_paper_pattern_graphic_print_2_sono_206963be-abdd-4168-8a65-c6d09699360b.png",
+      "megachile_edward_burtynsky_roman_aqueduct_landscape_6e0b9f4f-eaaf-4c19-839a-ddd06e6910f4.png",
+      "megachile_embroidery_06c56672-02ee-4e64-bf06-02f7b532fdbc.png",
+      "megachile_empty_room_ab0372dc-9201-402a-b631-47d0a7b6d262.png",
+      "megachile_fermenting_yeast_beer_pancake_batter_chiropractor_fai_85884bd4-69f0-4c4f-ac46-0beb70330645.png",
+      "megachile_garden_of_earthly_delights_oyster_scallop_conch_shell_4d3c4f34-024a-4d78-bf43-2dc94c945b49.png",
+      "megachile_javanese_batik_showing_wayang_shadow_puppets_with_clo_a20fa572-018b-4486-9b95-3883df8eca61.png",
+      "megachile_landscape_boreal_wendigo_hunting_northern_lights_danc_ef7a69a0-031c-453b-983d-e45ef6041d70.png",
+      "megachile_landscape_pastoral_cows_grazing_sheep_mosaic_paleolit_58b0545a-2d41-4bd7-88bb-cd31740d05a7.png",
+      "megachile_old_woman_lives_in_shoe_garden_of_earthly_delights_oy_9eaec5f2-8580-49f1-9207-73f101e71857.png",
+      "megachile_paleoart_palimpsest_ginger_root_stuff_animal_clams_mu_2770d059-b031-4517-b9e5-a6f1b59eacc3.png",
+      "megachile_paleoart_palimpsest_henry_darger_geometry_textbook_co_5958f62b-f277-4d1f-bf1f-c59f3d825300.png",
+      "megachile_paleoart_palimpsest_mosquito_tropical_a6adec89-0d6e-41ff-80a4-3abcd263c3e8.png",
+      "megachile_remedios_varo_50eac1d8-d12c-457d-a3b4-37eb2ea3e5d5.png",
+      "megachile_remedios_varo_David_Lynch_xenomorph_film_still_bacb528b-6de1-4597-8c26-d89254ccdffc.png",
+      "megachile_remedios_varo_freddy_krueger_a5831d14-78a6-42e8-9ae2-81a7646fb2e8.png",
+      "megachile_remedios_varo_opossum_film_still_5b2bda7f-45a9-4350-b3af-2b8ebe0df2db.png",
+      "megachile_remedios_varo_rat_0635c13e-2809-4000-b8f4-609aa3330d49.png",
+      "megachile_remedios_varo_wisdom_tooth_extraction_root_canal_cron_3125c18e-4041-4e20-bda1-14ba48226c37.png",
+      "megachile_six_identical_images_empty_room_oak_tree_fermenting_y_bdfc2235-991e-4ce2-bba7-91f2e7b05134.png",
+      "megachile_snail_shell_ecstasy_2e0edb05-b1bd-4c21-a8b7-9129d011f723.png",
+      "megachile_suprematist_composition_meets_sassanid_rock_relief_wh_2635605d-aa24-44b9-b855-fcf011490026.png",
+      "megachile_suprematist_composition_meets_sassanid_rock_relief_wh_4263330c-6e32-4e2a-b245-cd33d0f1846b.png",
+      "megachile_the_apprehension_of_the_god_luciano_paolo_mirando_in__262e7c91-43f5-45c5-8329-8fca17253370.png",
+      "megachile_turing_patterns_--chaos_15_--profile_7pjn9si_--v_6.1_b9082865-aea5-4f0d-9e9d-66fd6bcf4807.png",
+      "megachile_yak_standing_in_hot_spring_waterfall_--chaos_15_--p_19e2c25a-fa62-4a16-bec7-05b8e2276f5b_0.png"
+    ],
+    "interests_new": {
+      "12 Rods": {
+        "image": "R-2189050-1543687430-3515.jpg"
+      },
+      "12 oz Mouse": {
+        "image": "740full-12-oz.-mouse-screenshot.jpg"
+      },
+      "A Song of Ice and Fire": {
+        "image": "Bookset.jpg"
+      },
+      "AS Byatt": {
+        "image": "51Wpcs1hk1L._SY291_BO1,204,203,200_QL40_.jpg"
+      },
+      "Abba": {
+        "image": "OIP.jpeg"
+      },
+      "Action Button reviews": {
+        "image": "0972396b7be3098f274d8870a1925cfb.jpg"
+      },
+      "Agroforestry": {
+        "image": "468101653_10160076990681010_9043311846923657265_n.jpg"
+      },
+      "All Creatures Great and Small": {
+        "image": "5c115dc7f381-all-creatures-full-cast-s5.jpg"
+      },
+      "Amadou & Mariam": {
+        "image": "amadou-mariam-la-confusion-artwork-1440x1440.jpg"
+      },
+      "Andor": {
+        "image": "R.jpeg"
+      },
+      "Ari Aster": {
+        "image": "OIP.jpeg"
+      },
+      "Ataulfo mangos": {
+        "image": "IMG_22101.JPG"
+      },
+      "Avatar The Way of Water": {
+        "image": "Ro%27a_dies.webp"
+      },
+      "Barry Lopez": {
+        "image": "15259073.jpg"
+      },
+      "Biological Market Theory": {
+        "image": "Similarities-between-economic-markets-and-biological-markets-a-Market-trade-between.png"
+      },
+      "Biosemiotics": {
+        "image": "2961760.jpg"
+      },
+      "Black Sails": {
+        "image": "wp1891939.jpg"
+      },
+      "Blood Orange": {
+        "image": "tmg-article_tall.jpeg"
+      },
+      "Bloodborne": {
+        "image": "bf3567fc104ba0935b9a18759225e05b.jpg"
+      },
+      "Bon Voyage Organisation": {
+        "image": "R.jpeg"
+      },
+      "Borges": {
+        "image": "OIP.jpeg"
+      },
+      "Brass Eye": {
+        "image": "zH47q3EUUNnUzumM3bYdt6zZIwm.webp"
+      },
+      "Candyman (1992)": {
+        "image": "R.jpeg"
+      },
+      "Cat Valente": {
+        "image": "OIP.jpeg"
+      },
+      "Channel Zero": {
+        "image": "maxresdefault.jpg"
+      },
+      "Charles Mingus": {
+        "image": "OIP.jpeg"
+      },
+      "Children's Hospital": {
+        "image": "818RsKqfwaL._RI_.jpg"
+      },
+      "China Mieville": {
+        "image": "OIP.jpeg"
+      },
+      "Conner O'Malley": {
+        "image": "f93b2f97b99782b8243215c2f655b63a07-connor-omalley-intermediate-guide-lede.rsquare.w400.webp"
+      },
+      "Crazy Ex Girlfriend": {
+        "image": "637cd4aeb7dcc038368ea70d8d03cf2f73-09-crazy-ex-girlfriend-toughest-songs.rhorizontal.w610.webp"
+      },
+      "Cultural Evolution": {
+        "image": "Capture.JPG"
+      },
+      "Dan Abraham": {
+        "image": "dac_complete.jpg"
+      },
+      "Dan Simmons": {
+        "image": "30926539179.jpg"
+      },
+      "Danny McBride": {
+        "image": "8b83661bd38abcc025cdd89a786957a9.png"
+      },
+      "Dark Souls series": {
+        "image": "dark_souls_iii_rosaria_mother_of_rebirth_by_singlestooge_dewf064-fullview.jpg"
+      },
+      "David Abram": {
+        "image": "7822953.jpg"
+      },
+      "David Lynch": {
+        "image": "all-of-the-best-fashion-moments-from-twin-peaks-the-return-body-image-1499352309.jpg"
+      },
+      "Deadwood": {
+        "image": "OIP.jpeg"
+      },
+      "Dennou Coil": {
+        "image": "OIP.jpeg"
+      },
+      "Detroiters": {
+        "image": "Dhr6gE7U8AIC73c.jpg"
+      },
+      "Diana Wynne Jones": {
+        "image": "6294.jpg"
+      },
+      "Diet Soda": {
+        "image": "PXL_20250605_0129029561.jpg"
+      },
+      "Dynasties": {
+        "image": "OIP.jpeg"
+      },
+      "EconTalk": {
+        "image": "1200x1200bf-60.jpg"
+      },
+      "Electric Six": {
+        "image": "R.jpeg"
+      },
+      "Entomology": {
+        "image": "original.jpg"
+      },
+      "Environmental History": {
+        "image": "145702.jpg"
+      },
+      "Eric Andre": {
+        "image": "164255979_390e1f.jpg"
+      },
+      "Fried plantains": {
+        "image": "PXL_20250601_1841021951.jpg"
+      },
+      "Geology": {
+        "image": "467729172_10159979636431010_2364554604358272982_n.jpg"
+      },
+      "Ghost in the Shell Standalone Complex": {
+        "image": "SAC_tachikoma.jpg"
+      },
+      "Gilmore Girls": {
+        "image": "Fjf2tMIWAAIqnMv.jpeg"
+      },
+      "Gustav Mahler": {
+        "image": "HeaderMF-2-1568x941.jpeg"
+      },
+      "Hamilton's Pharmacopeia": {
+        "image": "OIP.jpeg"
+      },
+      "Hermann Hesse": {
+        "image": "5954.jpg"
+      },
+      "Heterodox environmentalism": {
+        "image": "58053294.jpg"
+      },
+      "Horchata": {
+        "image": "GpmSsM4XkAAMwUs1.png"
+      },
+      "Human population ecology": {
+        "image": "Capture.JPG"
+      },
+      "Iain Pears": {
+        "image": "15888.jpg"
+      },
+      "Indigenous folk tales": {
+        "image": "2497934.jpg"
+      },
+      "Jane the Virgin": {
+        "image": "jane-the-virgin-the-cw.jpg"
+      },
+      "Janelle Monae": {
+        "image": "R.jpeg"
+      },
+      "Jenny Nicholson": {
+        "image": "27ac71dde601204d604205d71c29061bbf-starcruiser-pole2.rsquare.w330.webp"
+      },
+      "Jesse Bullington": {
+        "image": "6436602.jpg"
+      },
+      "Jessie Ware": {
+        "image": "jessie-ware-that-feels-good.jpg"
+      },
+      "Jim Harrison": {
+        "image": "107419.jpg"
+      },
+      "Joe Abercrombie": {
+        "image": "13521459.jpg"
+      },
+      "Joe Pera Talks With You": {
+        "image": "Ge3UTm1WQAAAF2B1.jpeg"
+      },
+      "John Crowley": {
+        "image": "1335568.jpg"
+      },
+      "John Jackson Miller's Star Wars work": {
+        "image": "35427.jpg"
+      },
+      "John Langan": {
+        "image": "OIP.jpeg"
+      },
+      "Justified": {
+        "image": "GQpzldBXIAAAHUj.jpeg"
+      },
+      "Juzo Itami": {
+        "image": "OIP1.jpeg"
+      },
+      "Khusugtun": {
+        "image": "Khusugtun_Jangar.jpg"
+      },
+      "King Gizzard and the Lizard Wizard": {
+        "image": "Polygondwanaland.jpg"
+      },
+      "Kurt Vile": {
+        "image": "Wakinonaprettydaze1.jpg"
+      },
+      "Kylie Minogue": {
+        "image": "81d526d87545a8a4385e1d21669620da1.png"
+      },
+      "LLMs": {
+        "image": "Ggd-jEVWcAAp67W.jpeg"
+      },
+      "Limmy's Show": {
+        "image": "limmy-770x444.jpg"
+      },
+      "Mad Max Fury Road": {
+        "image": "Doof_1.0.jpeg"
+      },
+      "Madeline Miller": {
+        "image": "original-460-1018x1536.jpeg"
+      },
+      "Man Man": {
+        "image": "R.jpeg"
+      },
+      "Marimba": {
+        "image": "Gp6vfZ0awAEABNp1.jpeg"
+      },
+      "Matthew Stover's Star Wars novels": {
+        "image": "35458.jpg"
+      },
+      "Midjourney": {
+        "image": "megachile_psychedelic_art_nouveau_sculpture_exhibition_liquid_p_1be38b3a-1040-4d2b-ae49-ebe03d38cafc1.png"
+      },
+      "Molecular Biology": {
+        "image": "Capture.JPG"
+      },
+      "Mushishi": {
+        "image": "tumblr_on1ge8mqd01uwcnvto4_1280.jpg"
+      },
+      "Mycology": {
+        "image": "466204973_10159932513891010_1854161555771129623_n1.jpg"
+      },
+      "Nathan Fielder": {
+        "image": "OIP.jpeg"
+      },
+      "Neon Indian": {
+        "image": "R.jpeg"
+      },
+      "Neutral Milk Hotel": {
+        "image": "OIP.jpeg"
+      },
+      "Nirvanna The Band The Show": {
+        "image": "OIP (1).jpeg"
+      },
+      "Okonkolo": {
+        "image": "OIP.jpeg"
+      },
+      "Olivia Tremor Control": {
+        "image": "the-olivia-tremor-control-music-from-the-unrealized-film-script-dusk-at-cubist-castle-Cover-Art.jpg"
+      },
+      "Opal Whiteley": {
+        "image": "62268.jpg"
+      },
+      "Opossums": {
+        "image": "PXL_20210614_141530352.jpg",
+        "text": "I once <a href=\"https://x.com/adam_kranz/status/1404675701387804679\" target=\"_blank\" rel=\"noopener noreferrer\">\n    rescued a litter of orphaned babies</a>."
+      },
+      "Osgood Perkins": {
+        "image": "OIP.jpeg"
+      },
+      "Outer Wilds": {
+        "image": "OIP.jpeg"
+      },
+      "Parasitology": {
+        "image": "large.jpg"
+      },
+      "Partner dancing": {
+        "image": "Gn49pxnXsAAcql51.jpeg"
+      },
+      "Paul Verhoeven": {
+        "image": "MV5BNzcyMjExNjg3OF5BMl5BanBnXkFtZTgwOTY4Mjc1MDE@._V1_FMjpg_UX1000_.jpg"
+      },
+      "Peep Show": {
+        "image": "peep-show-remake.webp"
+      },
+      "Pet rats": {
+        "image": "469037449_10160212934386010_557039155440781471_n1.jpg"
+      },
+      "Peter Turchin": {
+        "image": "OIP.jpeg"
+      },
+      "Philip K. Dick": {
+        "image": "216377.jpg"
+      },
+      "Plant ID": {
+        "image": "OIP1.jpeg"
+      },
+      "Plant galls": {
+        "image": "unnamed1.jpg"
+      },
+      "Qatsi series": {
+        "image": "koyaanisqatsi.webp"
+      },
+      "RAM": {
+        "image": "ram_ram20august%201791.webp"
+      },
+      "Relativist epistemology": {
+        "image": "Gqv8kFAXYAEj2Ib.jpeg"
+      },
+      "Remedios Varo": {
+        "image": "RemediosVaro1.jpg"
+      },
+      "Robert Eggers": {
+        "image": "R.png"
+      },
+      "Robin Hobb": {
+        "image": "OIP.jpeg"
+      },
+      "Sam Evian": {
+        "image": "SAm-Evian-Time-To-Melt-art-1-1440x14401.jpeg"
+      },
+      "Seinfeld": {
+        "image": "Gi9DbNKasAAUnsa.jpeg"
+      },
+      "Sekiro": {
+        "image": "maxresdefault.jpg"
+      },
+      "Shamanism": {
+        "image": "1_lTg_oJrh9-sS7MpO0bgBsA.jpg"
+      },
+      "Sleepytime Gorilla Museum": {
+        "image": "R.jpeg"
+      },
+      "Soil Ecology": {
+        "image": "465816419_10159933486291010_6970610363972520569_n.jpg"
+      },
+      "Star Wars Dark Times": {
+        "image": "DT25.JPG"
+      },
+      "Steely Dan": {
+        "image": "1200x1200bf-60.jpg"
+      },
+      "Sudoku": {
+        "image": "Ghn1qp5WMAAyxFu1.jpeg"
+      },
+      "Sufjan Stevens": {
+        "image": "5a4b4307.webp"
+      },
+      "Susanna Clarke": {
+        "image": "R.jpeg"
+      },
+      "Sweet Karoline Blackberries": {
+        "image": "GmCnZuAbcAAKaGN.jpeg"
+      },
+      "TH White": {
+        "image": "OIP (1).jpeg"
+      },
+      "Taeko Ohnuki": {
+        "image": "51wb6-1N1hL._AC_.jpg"
+      },
+      "Terrence Deacon": {
+        "image": "Gq11LxUXoAAPEPG1.png"
+      },
+      "The Flaming Lips": {
+        "image": "OIP.jpeg"
+      },
+      "The Great British Baking Show": {
+        "image": "FA0GBxZXoAc3Bm2.jpeg"
+      },
+      "The Mars Volta": {
+        "image": "239516a78660a2e2b019e646eb5683fb.1000x1000x1.jpg"
+      },
+      "The Nightingale": {
+        "image": "R.jpeg"
+      },
+      "The Phantom Menace Soundtrack": {
+        "image": "OIP.jpeg"
+      },
+      "The Safdie Brothers": {
+        "image": "Uncut_Gems_poster.jpg"
+      },
+      "The Toast": {
+        "image": "The_Toast_logo.svg.png"
+      },
+      "The Traitor Baru Cormorant": {
+        "image": "OIP (1).jpeg"
+      },
+      "Tim and Eric": {
+        "image": "OIP.jpeg"
+      },
+      "Tribes, Predators, and Me": {
+        "image": "81wkPin8ltL._RI_.jpg"
+      },
+      "Tunnel Boring Machine videos": {
+        "image": "1679061409727.jpeg"
+      },
+      "Vektor": {
+        "image": "maxresdefault.jpg"
+      },
+      "Visakanv": {
+        "image": "FAdDO5MVkAA37do.jpeg"
+      },
+      "West African drumming and dance": {
+        "image": "PXL_20250608_230732432.jpg"
+      },
+      "Yorgos Lanthimos": {
+        "image": "333310-the-killing-of-a-sacred-deer-0-1000-0-1500-crop.jpg"
+      },
+      "You're The Worst": {
+        "image": "youre-the-worst.webp"
+      },
+      "of Montreal": {
+        "image": "R1.jpeg"
+      },
+      "tpot": {
+        "image": "PXL_20250617_233915506.MP.jpg"
+      }
+    }
   },
   "last_updated": "2025-06-18",
   "processing_status": {
-    "total_folders": 0,
-    "processed_folders": 0,
+    "total_folders": 146,
+    "processed_folders": 146,
     "remaining_folders": []
   }
 }
