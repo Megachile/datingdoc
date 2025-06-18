@@ -243,51 +243,29 @@ function loadRandomSong() {
   const randomVideoId = playlistVideos[Math.floor(Math.random() * playlistVideos.length)];
   
   if (player) {
-    player.loadVideoById(randomVideoId);
-    
-    // Check if video fails to load and try another one
-    setTimeout(() => {
-      try {
-        const state = player.getPlayerState();
-        // -1 = unstarted/failed, 5 = video cued but can't play
-        if (state === -1 || state === 5) {
-          console.log('Video failed to load, trying another...');
-          loadRandomSong(); // Try a different random video
-        }
-      } catch (error) {
-        console.log('Error checking player state, trying another video...');
-        loadRandomSong();
-      }
-    }, 3000); // Wait 3 seconds to check if video loaded
-    
+    // Use cueVideoById instead of loadVideoById to prevent autoplay
+    player.cueVideoById(randomVideoId);
   } else {
     player = new YT.Player('youtube-player', {
       height: '315',
       width: '560',
       videoId: randomVideoId,
       playerVars: {
-        'autoplay': 0,
-        'modestbranding': 1,
-        'rel': 0
+        'autoplay': 0,       // Don't autoplay
+        'controls': 1,       // Show controls
+        'modestbranding': 1, // Less YouTube branding
+        'rel': 0,           // Don't show related videos
+        'iv_load_policy': 3  // Hide annotations
       },
       events: {
         'onError': function(event) {
-          console.log('YouTube player error, trying another video...');
-          loadRandomSong(); // Try a different video on error
-        },
-        'onReady': function(event) {
-          // Check if the initial video failed to load
-          setTimeout(() => {
-            try {
-              const state = player.getPlayerState();
-              if (state === -1 || state === 5) {
-                console.log('Initial video failed to load, trying another...');
-                loadRandomSong();
-              }
-            } catch (error) {
-              console.log('Error checking initial player state');
-            }
-          }, 2000);
+          console.log('YouTube API error code:', event.data);
+          // Only retry on specific YouTube API errors
+          if (event.data === 2 || event.data === 5 || event.data === 150) {
+            // 2 = invalid video ID, 5 = HTML5 error, 150 = embedding disabled
+            console.log('Video cannot be embedded (YouTube error), trying another...');
+            setTimeout(() => loadRandomSong(), 1000);
+          }
         }
       }
     });
