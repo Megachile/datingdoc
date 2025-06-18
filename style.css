@@ -46,8 +46,8 @@ header {
 }
 
 .static-photos img {
-  width: 200px;
-  height: 200px;
+  width: 320px;
+  height: 320px;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -103,12 +103,11 @@ header {
   .gallery {
     column-width: 100%;
   }
-}
-.static-photos img {
-  width: 400px;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 10px;
+  
+  .static-photos img {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 #tweet-container {
