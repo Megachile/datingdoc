@@ -181,7 +181,8 @@ const TWEET_URLS = [
   "https://twitter.com/taijitu_sees/status/1915103500234797150",
   "https://twitter.com/Romy_Holland/status/1916727710493348166",
   "https://twitter.com/tasshinfogleman/status/1918685888164552785",
-  "https://twitter.com/carinmariederry/status/1920913459908104297"
+  "https://twitter.com/carinmariederry/status/1920913459908104297",
+  "https://x.com/mishapathy/status/1939354611283796433"
 ];
 
 function loadRandomTweet() {
