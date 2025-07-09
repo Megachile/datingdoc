@@ -1,4 +1,3 @@
-cat << 'EOL' > simplified-manifest-generator.js
 const fs = require('fs');
 const https = require('https');
 
@@ -132,4 +131,3 @@ async function generateSimpleManifest() {
 
 // Run the simplified generator
 generateSimpleManifest().catch(console.error);
-EOL
