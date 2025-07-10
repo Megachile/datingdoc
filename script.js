@@ -65,7 +65,7 @@ async function loadRecentPhotos() {
     }
     
     const container = document.getElementById("recent-photos");
-    const images = siteData.images.recent?.slice(0, 3) || [];
+    const images = siteData.images.recent?.slice(0, 4) || [];
 
     if (images.length === 0) {
         container.innerHTML = '<p>No recent photos available</p>';
